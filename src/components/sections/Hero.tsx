@@ -5,9 +5,9 @@ import { Button } from "../ui/button";
 
 export function Hero() {
   return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full">
+    <section className="relative h-[60vh] md:h-[98vh] w-full">
       <Image
-        src="/images/hero-bg.jpg"
+        src="/hero.png"
         alt="Esports Tournament"
         fill
         className="object-cover"

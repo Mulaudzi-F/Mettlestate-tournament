@@ -22,8 +22,7 @@ const formSchema = z.object({
   gameTitle: z.string().min(1, "Required"),
 });
 
-export function RegistrationForm() {
-  const [isOpen, setIsOpen] = useState(false);
+export function RegistrationForm({ isModalOpen, setIsModalOpen }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,22 +34,21 @@ export function RegistrationForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setIsOpen(false);
+    setIsModalOpen(false);
   }
 
   return (
     <section className="container py-12 px-4">
       <div className="text-center">
         <Button
-          onClick={() => setIsOpen(true)}
-          className="bg-red-600 hover:bg-red-700 px-8 py-6 text-lg"
+          onClick={() => setIsModalOpen(true)}
+          className="bg-red-600 hover:bg-red-700 px-8 py-6 text-lg "
         >
           Register for Tournament
         </Button>
       </div>
 
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <h3 className="text-2xl font-bold mb-6">Tournament Registration</h3>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
