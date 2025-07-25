@@ -7,7 +7,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html
+      lang="en"
+      className="scroll-smooth dark"
+      style={{ colorScheme: "dark" }}
+    >
       <body className="min-h-screen bg-gray-900 text-white antialiased">
         <Providers>{children}</Providers>
       </body>
