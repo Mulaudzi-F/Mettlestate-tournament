@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
-export function Hero({ setIsModalOpen }) {
+export function Hero({ setIsModalOpen }: any) {
   function openModal() {
     setIsModalOpen(true);
   }
