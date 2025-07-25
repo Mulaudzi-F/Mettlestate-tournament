@@ -11,16 +11,21 @@ export function Modal({
   onClose: () => void;
   children: React.ReactNode;
 }) {
+  if (!isOpen) return null;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: isOpen ? 1 : 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
       onClick={onClose}
     >
       <motion.div
-        initial={{ y: 20 }}
-        animate={{ y: isOpen ? 0 : 20 }}
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        transition={{ duration: 0.3 }}
         onClick={(e) => e.stopPropagation()}
         className="relative bg-gray-900 p-6 rounded-lg w-full max-w-md border border-gray-700"
       >
