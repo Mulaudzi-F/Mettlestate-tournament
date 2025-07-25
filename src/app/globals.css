@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {
@@ -30,5 +27,12 @@
     50% {
       transform: translateY(-10px);
     }
+  }
+}
+@layer base {
+  button,
+  [type="button"],
+  [type="submit"] {
+    @apply cursor-pointer;
   }
 }
