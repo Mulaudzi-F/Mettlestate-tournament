@@ -22,7 +22,13 @@ const formSchema = z.object({
   gameTitle: z.string().min(1, "Required"),
 });
 
-export function RegistrationForm({ isModalOpen, setIsModalOpen }) {
+export function RegistrationForm({
+  isModalOpen,
+  setIsModalOpen,
+}: {
+  isModalOpen: boolean;
+  setIsModalOpen: (val: boolean) => void;
+}) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
